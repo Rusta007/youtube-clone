@@ -4,7 +4,7 @@ This is a simple video player application built with React. You can view videos,
 
 ## Live Demo
 
-You can view the live demo [here](NETLIFY_LINK_HERE).
+You can view the live demo [here](https://youtube-clone-test.netlify.app/).
 
 ## How to Run
 
