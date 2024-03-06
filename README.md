@@ -19,8 +19,6 @@ To run this project locally, follow these steps:
    
 Here's a template for your README.md file:
 
-markdown
-Copy code
 # Video Player App
 
 This is a simple video player application built with React. You can view videos, control playback, change playback speed, and toggle fullscreen mode.
@@ -41,7 +39,6 @@ To run this project locally, follow these steps:
   npm install
 4. Start the development server:
    npm start
-
 5. Open your web browser and navigate to http://localhost:3000 to view the application.
 
 ## Functionality
