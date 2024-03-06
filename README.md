@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Video Player App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple video player application built with React. You can view videos, control playback, change playback speed, and toggle fullscreen mode.
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+You can view the live demo [here](NETLIFY_LINK_HERE).
 
-### `npm start`
+## How to Run
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To run this project locally, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone this repository to your local machine using the following command:
+   git clone REPOSITORY_URL
+2. Navigate into the project directory:
+   cd video-player-app
 
-### `npm test`
+3. Install dependencies using npm or yarn:
+   
+Here's a template for your README.md file:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+markdown
+Copy code
+# Video Player App
 
-### `npm run build`
+This is a simple video player application built with React. You can view videos, control playback, change playback speed, and toggle fullscreen mode.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Live Demo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You can view the live demo [here](NETLIFY_LINK_HERE).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to Run
 
-### `npm run eject`
+To run this project locally, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone this repository to your local machine using the following command:
+  git clone REPOSITORY_URL
+2. Navigate into the project directory:
+  cd video-player-app
+3. Install dependencies using npm or yarn:
+  npm install
+4. Start the development server:
+   npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Open your web browser and navigate to http://localhost:3000 to view the application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Functionality
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Video Playback
 
-## Learn More
+- Click the play/pause button to play or pause the current video.
+- Use the seek bar to skip to a specific point in the video.
+- The current playback time and total duration of the video are displayed below the seek bar.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Playback Speed
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Select a playback speed from the dropdown menu to change the speed of the video playback.
 
-### Code Splitting
+### Fullscreen Mode
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Click the fullscreen button to toggle fullscreen mode for the video player.
 
-### Analyzing the Bundle Size
+### Next and Previous Videos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Click the "Next" button to play the next video in the playlist.
+- Click the "Previous" button to play the previous video in the playlist.
 
-### Making a Progressive Web App
+## Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- React
+- JavaScript
+- HTML/CSS
 
-### Advanced Configuration
+## Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This project was created by Jyoti Prajapati. Feel free to contribute or provide feedback!
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
