@@ -1,0 +1,28 @@
+{
+  "playlist": [
+    {
+      "id": 1,
+      "thumbnail": "/app/utils/thumbnail1.jpeg",
+      "video": "video1.mp4",
+      "title": "How to build Resilience",
+      "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "url": "/app/utils/How to build Resilience, The Resilience River, Positive Mental Health and Personal Growth..mp4"
+    },
+    {
+      "id": 2,
+      "thumbnail": "/app/utils/thumbnail2.jpeg",
+      "video": "video2.mp4",
+      "title": "Sinking Feeling",
+      "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "url": "/app/utils/Sinking Feeling.mp4"
+    },
+    {
+      "id": 3,
+      "thumbnail": "/app/utils/thumbnail3.jpeg",
+      "video": "video3.mp4",
+      "title": "Video play back",
+      "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "url": "/app/utils/videoplayback.mp4"
+    }
+  ]
+}
