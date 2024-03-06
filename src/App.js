@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from "react";
 import VideoPlayer from "./app/common/components/VideoPlayer";
 import Playlist from "./app/common/components/Playlist";
-import jsonData from "./app/utils/playlist.json";
 import AddVideoModal from "./app/common/components/AddVideoModal";
+import jsonData from "./app/utils/playlist.json";
 
 const App = () => {
-  const [playlist, setPlaylist] = useState(jsonData.playlist);
+  const [playlist, setPlaylist] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    const updatedPlaylist = jsonData.playlist.map((entry) => ({
+    setPlaylist(jsonData.playlist.map((entry) => ({
       ...entry,
       url: require("." + entry.url),
       thumbnail: require("." + entry.thumbnail),
-    }));
-
-    setPlaylist(updatedPlaylist);
-  }, [searchQuery]);
+    })));
+  }, []);
 
   const handleVideoSelect = (index) => {
     setCurrentVideoIndex(index);
@@ -70,7 +68,7 @@ const App = () => {
 
       <div className="flex-grow flex flex-col md:flex-row">
         {currentVideoIndex !== null && (
-          <div className="w-full md:w-3/5 p-4">
+          <div className="w-full p-4">
             <VideoPlayer
               video={playlist[currentVideoIndex]}
               playlist={playlist}
