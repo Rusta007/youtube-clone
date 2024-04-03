@@ -130,6 +130,13 @@ const AddVideoModal = ({ isOpen, onClose, onSave }) => {
               onChange={(e) => setDescription(e.target.value)}
             />
             <div className="flex justify-end">
+             
+              <Button
+                onClick={onClose}
+                className="px-3 mx-2 bg-red-400 rounded-md"
+              >
+                Cancel
+              </Button>
               <Button
                 onClick={handleSave}
                 className={`px-4 py-2 bg-blue-500 text-white rounded-md ${
@@ -137,12 +144,6 @@ const AddVideoModal = ({ isOpen, onClose, onSave }) => {
                 }`}
               >
                 Save
-              </Button>
-              <Button
-                onClick={onClose}
-                className="px-3 mx-2 bg-red-400 rounded-md"
-              >
-                Cancel
               </Button>
             </div>
           </div>

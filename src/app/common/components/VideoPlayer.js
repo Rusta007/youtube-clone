@@ -102,16 +102,16 @@ const VideoPlayer = ({ video, playlist, onVideoEnd }) => {
 
   return (
     <>
-      <div className="w-auto">
+      <div className="">
         <video
           ref={videoRef}
           src={video.url}
           onTimeUpdate={handleTimeUpdate}
           onEnded={handleEnded}
-          className="w-full"
+          className=""
           autoPlay
         ></video>
-        <div className="flex justify-between items-center">
+        <div className="flex gap-2 items-center bg-gray-200 p-2">
           {/* <input type="button" onClick={playPrevVideo} value="Prev" /> */}
           <Button onClick={handlePlayPause}>
             {isPlaying ? (
@@ -127,12 +127,17 @@ const VideoPlayer = ({ video, playlist, onVideoEnd }) => {
             max={videoRef.current ? videoRef.current.duration : 0}
             value={currentTime}
             onChange={handleSeek}
+            className="flex-grow"
           />
           <span>
             {formatTime(currentTime)} /{" "}
             {formatTime(videoRef.current ? videoRef.current.duration : 0)}
           </span>
-          <select value={playbackSpeed} onChange={handlePlaybackSpeedChange}>
+          <select
+            value={playbackSpeed}
+            onChange={handlePlaybackSpeedChange}
+            className="bg-gray-200"
+          >
             <option value="-2">-2x</option>
             <option value="-1.5">-1.5x</option>
             <option value="-1">-1x</option>
@@ -145,8 +150,12 @@ const VideoPlayer = ({ video, playlist, onVideoEnd }) => {
           </Button>
         </div>
       </div>
-      <h1 className="font-extrabold text-xl">{video.title}</h1>
-      <p>{video.desc}</p>
+      <h1 className="font-extrabold text-xl pt-[20px]">{video.title}</h1>
+      <div>
+        <button className="border rounded m-1 px-4 py-2">Like</button>
+        <button className="border rounded m-1 px-4 py-2">Favorite</button>
+      </div>
+      <p className="pt-[8px]">{video.desc}</p>
     </>
   );
 };

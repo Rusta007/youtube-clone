@@ -25,12 +25,12 @@ const Playlist = ({
 
   return (
     <div className="w-auto">
-      <h2 className="text-xl font-bold mb-4">Playlist</h2>
+      {/* <h2 className="text-xl font-bold mb-4">Playlist</h2> */}
       <ul>
         {playlist.map((video, index) => (
           <li
             key={index}
-            className={`flex items-center p-2 ${
+            className={`flex items-center h-[170px] p-2 ${
               index === currentVideoIndex ? "bg-gray-200" : ""
             }`}
             onClick={() => onVideoSelect(index)}
@@ -45,7 +45,7 @@ const Playlist = ({
             <img
               src={video.thumbnail}
               alt={`Thumbnail for ${video.title}`}
-              className="w-28 h-auto mr-2"
+              className="w-[194px] h-[9rem] mr-2"
             />
             <div>
               <span className="text-lg font-bold inline-block">
@@ -53,7 +53,7 @@ const Playlist = ({
               </span>
               <div>
                 {video.desc.length > 50
-                  ? `${video.desc.slice(0, 50)}...`
+                  ? `${video.desc.slice(0, 150)}...`
                   : video.desc}
               </div>
             </div>
