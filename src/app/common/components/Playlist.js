@@ -6,6 +6,7 @@ const Playlist = ({
   onVideoSelect,
   currentVideoIndex,
   setPlaylist,
+  toggle,
 }) => {
   const handleDragStart = (event, index) => {
     event.dataTransfer.setData("index", index);
@@ -25,40 +26,72 @@ const Playlist = ({
 
   return (
     <div className="w-auto">
-      {/* <h2 className="text-xl font-bold mb-4">Playlist</h2> */}
-      <ul>
-        {playlist.map((video, index) => (
-          <li
-            key={index}
-            className={`flex items-center h-[170px] p-2 ${
-              index === currentVideoIndex ? "bg-gray-200" : ""
-            }`}
-            onClick={() => onVideoSelect(index)}
-            draggable="true"
-            onDragStart={(event) => handleDragStart(event, index)}
-            onDragOver={handleDragOver}
-            onDrop={(event) => handleDrop(event, index)}
-          >
-            <span className="cursor-move mr-2">
-              <FaGripLines />
-            </span>
-            <img
-              src={video.thumbnail}
-              alt={`Thumbnail for ${video.title}`}
-              className="w-[194px] h-[9rem] mr-2"
-            />
-            <div>
-              <span className="text-lg font-bold inline-block">
-                {video.title}
-              </span>
-              <div>
-                {video.desc.length > 50
-                  ? `${video.desc.slice(0, 150)}...`
-                  : video.desc}
-              </div>
-            </div>
-          </li>
-        ))}
+      <ul className="flex flex-wrap justify-evenly w-[100%]">
+        {playlist.length === 0 ? (
+          <>
+          <h1>No Found</h1>
+          </>
+        ) : (
+          <>
+            {playlist.map((video, index) => (
+              <li
+                id="playlistID"
+                key={index}
+                className={``}
+                onClick={() => onVideoSelect(index)}
+                draggable="true"
+                onDragStart={(event) => handleDragStart(event, index)}
+                onDragOver={handleDragOver}
+                onDrop={(event) => handleDrop(event, index)}
+              >
+                <div
+                  className={`${
+                    toggle === true ? "border-gray-700" : "border-gray-200"
+                  } ${index === currentVideoIndex ? "bg-gray-200" : ""}
+          ${
+            toggle === true && index === currentVideoIndex ? "bg-slate-500" : ""
+          } flex gap-2 items-center p-2 my-3`}
+                >
+                  {currentVideoIndex !== null && (
+                    <div>
+                      <span className="cursor-move mr-2">
+                        <FaGripLines />
+                      </span>
+                    </div>
+                  )}
+                  <div>
+                    <img
+                      src={video.thumbnail}
+                      alt={`Thumbnail for ${video.title}`}
+                      className="w-[400px] h-[13rem] mr-2 rounded-md"
+                    />
+                    <div className="flex flex-col">
+                      <div
+                        className={`text-lg ${
+                          toggle == true ? "text-gray-50" : "text-gray-950"
+                        } font-bold inline-block `}
+                      >
+                        {video.title}
+                      </div>
+                      <div className="text- text-gray-500 font-bold inline-block ">
+                        {video.authorBy}
+                      </div>
+                      {/* <div
+                    className={` text-${
+                      currentVideoIndex == null ? "xs" : "xs"
+                    }`}
+                  >
+                    {video.desc.length > 50
+                      ? `${video.desc.slice(0, 50)}...`
+                      : video.desc}
+                  </div> */}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </>
+        )}
       </ul>
     </div>
   );

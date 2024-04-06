@@ -5,24 +5,56 @@
       "thumbnail": "/app/utils/thumbnail1.jpeg",
       "video": "video1.mp4",
       "title": "How to build Resilience",
+      "authorBy": "William Shakespeare. Ah, The Bard",
       "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-      "url": "/app/utils/How to build Resilience, The Resilience River, Positive Mental Health and Personal Growth..mp4"
+      "url": "/app/utils/How to build Resilience, The Resilience River, Positive Mental Health and Personal Growth..mp4",
+      "like": true,
+      "fav": false
     },
     {
       "id": 2,
       "thumbnail": "/app/utils/thumbnail2.jpeg",
       "video": "video2.mp4",
       "title": "Sinking Feeling",
+      "authorBy": "Ernest Hemingway",
       "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-      "url": "/app/utils/Sinking Feeling.mp4"
+      "url": "/app/utils/Sinking Feeling.mp4",
+      "like": false,
+      "fav": true
     },
     {
       "id": 3,
       "thumbnail": "/app/utils/thumbnail3.jpeg",
       "video": "video3.mp4",
       "title": "Video play back",
+      "authorBy": "Sarat Chandra Chattopadhyay",
       "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-      "url": "/app/utils/videoplayback.mp4"
+      "url": "/app/utils/videoplayback.mp4",
+      "like": false,
+      "fav": true
+    },
+    {
+      "id": 4,
+      "thumbnail": "/app/utils/imagesss.jpeg",
+      "video": "video1.mp4",
+      "title": "How to build Resilience",
+      "authorBy": "Sarat Chandra Chattopadhyay",
+      "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "url": "/app/utils/How to build Resilience, The Resilience River, Positive Mental Health and Personal Growth..mp4",
+      "like": true,
+      "fav": false
+    },
+
+    {
+      "id": 6,
+      "thumbnail": "/app/utils/images.jpeg",
+      "video": "video3.mp4",
+      "title": "Video play back",
+      "authorBy": "George Orwell",
+      "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "url": "/app/utils/videoplayback.mp4",
+      "like": false,
+      "fav": true
     }
   ]
 }
