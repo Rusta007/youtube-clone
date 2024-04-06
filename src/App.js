@@ -189,7 +189,7 @@ const App = () => {
             <MdMenu size={30} color={`${toggle == true ? "white" : "black"}`} />
           </button>
           <a href="/" className="flex items-center">
-            <span className="text-2xl font-semibold mb-2">
+            <span className="text-2xl font-semibold">
               <img
                 src="https://cdn.pixabay.com/photo/2022/06/23/10/00/gym-logo-7279453_1280.png"
                 alt="logo"
