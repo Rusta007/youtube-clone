@@ -6,6 +6,7 @@ import { MdKeyboardVoice } from "react-icons/md";
 import jsonData from "./app/utils/playlist.json";
 import { TfiSearch } from "react-icons/tfi";
 import { MdMenu } from "react-icons/md";
+import { RiVoiceprintFill } from "react-icons/ri";
 import { FaPlusCircle } from "react-icons/fa";
 import DayNight from "./app/common/components/DayNight";
 import SideBar from "./app/common/components/SideBar";
@@ -16,6 +17,34 @@ const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [historyVideos, setHistoryVideos] = useState([]);
+  const [voice, setVoice] = useState(false);
+
+  function SearchRecognition() {
+    setVoice(!voice);
+    if (`SpeechRecognition` in window || `webkitSpeechRecognition` in window) {
+      const recognition = new (window.SpeechRecognition ||
+        window.webkitSpeechRecognition)();
+
+      recognition.lang = "en-US";
+      recognition.start();
+
+      recognition.onresult = (e) => {
+        if (e.results.length > 0 && e.results[0].length > 0) {
+          const transcript = e.results[0][0].transcript;
+          console.log(transcript);
+          setSearchQuery(transcript);
+        } else {
+          console.log("No transcriptions were recognized.");
+        }
+      };
+      recognition.onerror = (event) => {
+        console.error("Speech recognition error", event.error);
+      };
+      recognition.onend = () => {
+        console.log("Speech recognition service disconnected");
+      };
+    }
+  }
 
   useEffect(() => {
     setPlaylist(
@@ -42,6 +71,8 @@ const App = () => {
         thumbnail: require("." + entry?.thumbnail),
       }))
     );
+
+    setButton("home");
   }, []);
 
   const handleVideoSelect = (index) => {
@@ -79,18 +110,25 @@ const App = () => {
     setSearchQuery("");
   };
 
-  // const debounce = (func, delay) => {
-  //   let timeId;
-  //   return function (...args) {
-  //     if (timeId) {
-  //       clearTimeout(timeId);
-  //     }
-  //     timeId = setTimeout(() => {
-  //       // console.log(args);
-  //       func.apply(this, args);
-  //     }, delay);
-  //   };
-  // };
+  useEffect(() => {
+    // Debounce the search recognition function
+    const debounceSearchRecognition = debounce(SearchRecognition, 1000);
+    debounceSearchRecognition();
+
+    // Clear timeout on component unmount to avoid memory leaks
+    return () => clearTimeout(debounceSearchRecognition);
+  }, [searchQuery]);
+
+  // Debounce function
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return function (...args) {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        func.apply(this, args);
+      }, delay);
+    };
+  };
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -222,13 +260,14 @@ const App = () => {
           >
             <TfiSearch size={19} />
           </button>
-          <div
+          <button
+            onClick={SearchRecognition}
             className={` border-black ${
               toggle !== true ? "bg-blue-500" : "bg-gray-600"
             } py-2 px-2 lg:px-2 lg:py-3 rounded-full  h-[auto] w-[35px] ml-[-10px] cursor-pointer`}
           >
             <MdKeyboardVoice size={20} />
-          </div>
+          </button>
         </div>
 
         <div className="flex items-center w-auto">
@@ -256,7 +295,13 @@ const App = () => {
             : " flex-col-reverse lg:flex-row"
         } `}
       >
-        {model && <SideBar handlebutton={handlebutton} toggle={toggle} />}
+        {model && (
+          <SideBar
+            handlebutton={handlebutton}
+            toggle={toggle}
+            button={button}
+          />
+        )}
         <div
           className={`${
             currentVideoIndex == null ? "w-[100%]" : "w-[100%] lg:!w-[30%]"
@@ -288,6 +333,14 @@ const App = () => {
         onClose={handleCloseModal}
         onSave={handleSaveVideo}
       />
+      {voice && (
+        <>
+          <div className="fixed bottom-0 bg-white text-red-400 p-4 w-[100%] flex justify-center items-center gap-2">
+            <RiVoiceprintFill />
+            Listing to you ......
+          </div>
+        </>
+      )}
     </div>
   );
 };

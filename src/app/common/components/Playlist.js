@@ -29,7 +29,7 @@ const Playlist = ({
       <ul className="flex flex-wrap justify-evenly w-[100%]">
         {playlist.length === 0 ? (
           <>
-          <h1>No Found</h1>
+            <h1>No Found</h1>
           </>
         ) : (
           <>
@@ -63,7 +63,7 @@ const Playlist = ({
                     <img
                       src={video.thumbnail}
                       alt={`Thumbnail for ${video.title}`}
-                      className="w-[400px] h-[13rem] mr-2 rounded-md"
+                      className="w-[372px] h-[13rem] mr-2 rounded-md"
                     />
                     <div className="flex flex-col">
                       <div

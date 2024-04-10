@@ -4,16 +4,19 @@ import { BiSolidLike } from "react-icons/bi";
 import { IoIosHeart } from "react-icons/io";
 import { FaHistory } from "react-icons/fa";
 
-function SideBar({ handlebutton, toggle }) {
+function SideBar({ handlebutton, button, toggle }) {
+  // console.log(button);
   return (
     <>
       <div
         className={`fixed top-[80px] left-0 h-full  w-[100%] md:w-[20%] z-50 ${
           toggle ? "bg-gray-900" : "block bg-gray-50"
-        } md:flex md:flex-col items-left px-3 shadow-lg`}
+        } md:flex md:flex-col items-left px-3 shadow-lg  `}
       >
         <button
-          className="flex flex-row items-center my-2"
+          className={`flex flex-row items-center hover:bg-gray-200 p-2 ${
+            button == "home" ? "!bg-gray-400" : ""
+          }`}
           onClick={() => handlebutton("home")}
         >
           <IoHome className="mr-3" size={20} color="gray" />
@@ -26,7 +29,9 @@ function SideBar({ handlebutton, toggle }) {
           </span>
         </button>
         <button
-          className=" flex flex-row items-center my-2"
+          className={`flex flex-row items-center hover:bg-gray-200 p-2 ${
+            button == "Liked" ? "!bg-gray-400" : ""
+          }`}
           onClick={() => handlebutton("Liked")}
         >
           <BiSolidLike className="mr-3" size={20} color="gray" />
@@ -39,7 +44,9 @@ function SideBar({ handlebutton, toggle }) {
           </span>
         </button>
         <button
-          className=" flex flex-row items-center my-2"
+          className={`flex flex-row items-center hover:bg-gray-200 p-2 ${
+            button == "Fav" ? "!bg-gray-400" : ""
+          }`}
           onClick={() => handlebutton("Fav")}
         >
           <IoIosHeart className="mr-3" size={20} color="gray" />
@@ -52,7 +59,9 @@ function SideBar({ handlebutton, toggle }) {
           </span>
         </button>
         <button
-          className=" flex flex-row items-center my-2"
+          className={`flex flex-row items-center hover:bg-gray-200 p-2 ${
+            button == "History" ? "!bg-gray-400" : ""
+          }`}
           onClick={() => handlebutton("History")}
         >
           <FaHistory className="mr-3" size={20} color="gray" />

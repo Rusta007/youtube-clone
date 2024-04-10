@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Input from "../form/Input";
 import Button from "../form/Button";
+import { FaFileUpload } from "react-icons/fa";
 
 const AddVideoModal = ({ isOpen, onClose, onSave }) => {
   const [videoName, setVideoName] = useState("");
@@ -78,7 +79,7 @@ const AddVideoModal = ({ isOpen, onClose, onSave }) => {
     <>
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg w-1/2">
+          <div className="bg-white p-6 rounded-lg w-[0%] md:w-1/2">
             <h2 className="text-xl font-semibold mb-4">Add New Video</h2>
             <Input
               type="text"
@@ -88,7 +89,7 @@ const AddVideoModal = ({ isOpen, onClose, onSave }) => {
             />
             <div
               {...getThumbnailRootProps()}
-              className="border border-gray-300 rounded-md p-2 mb-4 w-full"
+              className="border border-dashed border-gray-400 rounded-md p-6 mb-4 w-full"
             >
               <input {...getThumbnailInputProps()} />
               {thumbnail ? (
@@ -99,12 +100,15 @@ const AddVideoModal = ({ isOpen, onClose, onSave }) => {
                   style={{ maxWidth: "150px" }}
                 />
               ) : (
-                <p className="text-gray-400">Drag and drop thumbnail image</p>
+                <div className="text-gray-400 flex justify-center items-center gap-2">
+                  <FaFileUpload color="gray" />
+                  Drag and drop thumbnail image
+                </div>
               )}
             </div>
             <div
               {...getVideoRootProps()}
-              className="border border-gray-300 rounded-md p-2 mb-4 w-full"
+              className="border border-dashed border-gray-400 rounded-md p-6 mb-4 w-full"
             >
               <input {...getVideoInputProps()} />
               {isProcessing ? (
@@ -119,7 +123,10 @@ const AddVideoModal = ({ isOpen, onClose, onSave }) => {
                   Your browser does not support the video tag.
                 </video>
               ) : (
-                <p className="text-gray-400">Drag and drop video file(MP4)</p>
+                <div className="text-gray-400 flex justify-center items-center gap-2">
+                  <FaFileUpload color="gray" />
+                  Drag and drop video file(MP4)
+                </div>
               )}
             </div>
 
@@ -130,7 +137,6 @@ const AddVideoModal = ({ isOpen, onClose, onSave }) => {
               onChange={(e) => setDescription(e.target.value)}
             />
             <div className="flex justify-end">
-             
               <Button
                 onClick={onClose}
                 className="px-3 mx-2 bg-red-400 rounded-md"

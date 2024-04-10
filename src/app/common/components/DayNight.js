@@ -4,7 +4,11 @@ import { MdOutlineNightlight } from "react-icons/md";
 
 function DayNight({ handleToggle, toggle }) {
   return (
-    <div className="border border-black rounded-lg flex">
+    <div
+      className={`border ${
+        toggle === true ? "border-black" : "border-gray-200"
+      } rounded-lg flex`}
+    >
       <button
         className={`lg:px-4 lg:py-2 p-1 rounded-lg ${
           toggle === false && "bg-gradient-to-tr from-orange-300 to-red-500"
